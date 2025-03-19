@@ -3,24 +3,24 @@ pipeline {
 
     environment {
         REPO_URL = 'https://github.com/sgandeplli/10-MicroService-Appliction.git'
-        DOCKER_HUB_USER = 'satyadockerhub07'
-        CREDENTIALS_ID = 'docker-credentials'  // Updated credentials ID
-        GOOGLE_CREDENTIALS = credentials('gcp-sa')  
+        DOCKER_HUB_USER = 'sivasai2003'
+        CREDENTIALS_ID = 'docker'  // Updated credentials ID
+        GOOGLE_CREDENTIALS = credentials('gcpsa')  
         // Docker image names for each microservice
-        AD_SERVICE_IMAGE = 'satyadockerhub07/adservice:latest3'
-        CHECKOUT_SERVICE_IMAGE = 'satyadockerhub07/checkoutservice:latest3'
-        EMAIL_SERVICE_IMAGE = 'satyadockerhub07/emailservice:latest3'
-        LOADGEN_SERVICE_IMAGE = 'satyadockerhub07/loadgenerator:latest3'
-        PRODUCT_SERVICE_IMAGE = 'satyadockerhub07/productcatalogservice:latest3'
-        SHIPPING_SERVICE_IMAGE = 'satyadockerhub07/shippingservice:latest3'
-        CART_SERVICE_IMAGE = 'satyadockerhub07/cartservice:latest3'
-        CURRENCY_SERVICE_IMAGE = 'satyadockerhub07/currencyservice:latest3'
-        FRONTEND_SERVICE_IMAGE = 'satyadockerhub07/frontend:latest3'
-        PAYMENT_SERVICE_IMAGE = 'satyadockerhub07/paymentservice:latest3'
-        RECOMMENDATION_SERVICE_IMAGE = 'satyadockerhub07/recommendationservice:latest3'
+        AD_SERVICE_IMAGE = 'sivasai2003/adservice:latest3'
+        CHECKOUT_SERVICE_IMAGE = 'sivasai2003/checkoutservice:latest3'
+        EMAIL_SERVICE_IMAGE = 'sivasai2003/emailservice:latest3'
+        LOADGEN_SERVICE_IMAGE = 'sivasai2003/loadgenerator:latest3'
+        PRODUCT_SERVICE_IMAGE = 'sivasai2003/productcatalogservice:latest3'
+        SHIPPING_SERVICE_IMAGE = 'sivasai2003/shippingservice:latest3'
+        CART_SERVICE_IMAGE = 'sivasai2003/cartservice:latest3'
+        CURRENCY_SERVICE_IMAGE = 'sivasai2003/currencyservice:latest3'
+        FRONTEND_SERVICE_IMAGE = 'sivasai2003/frontend:latest3'
+        PAYMENT_SERVICE_IMAGE = 'sivasai2003/paymentservice:latest3'
+        RECOMMENDATION_SERVICE_IMAGE = 'sivasai2003/recommendationservice:latest3'
 
         // Terraform Variables
-        PROJECT_ID = 'lyrical-bus-452711-c5'  // Your GCP project ID
+        PROJECT_ID = 'shiva-project-453013'  // Your GCP project ID
         REGION = 'us-west3-c'      // GCP region
         CLUSTER_NAME = 'my-cluster11' // GKE cluster name
         NODE_COUNT = 2                // Number of nodes in the GKE cluster
@@ -199,7 +199,7 @@ pipeline {
                 stage('Push adservice Image') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                            withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                                 sh 'echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin'
                                 sh 'docker push ${AD_SERVICE_IMAGE}'
                             }
@@ -209,7 +209,7 @@ pipeline {
                 stage('Push checkoutservice Image') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                            withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                                 sh 'echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin'
                                 sh 'docker push ${CHECKOUT_SERVICE_IMAGE}'
                             }
@@ -219,7 +219,7 @@ pipeline {
                 stage('Push emailservice Image') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                            withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                                 sh 'echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin'
                                 sh 'docker push ${EMAIL_SERVICE_IMAGE}'
                             }
@@ -229,7 +229,7 @@ pipeline {
                 stage('Push loadgenerator Image') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                            withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                                 sh 'echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin'
                                 sh 'docker push ${LOADGEN_SERVICE_IMAGE}'
                             }
@@ -239,7 +239,7 @@ pipeline {
                 stage('Push productcatalogservice Image') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                            withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                                 sh 'echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin'
                                 sh 'docker push ${PRODUCT_SERVICE_IMAGE}'
                             }
@@ -249,7 +249,7 @@ pipeline {
                 stage('Push shippingservice Image') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                            withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                                 sh 'echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin'
                                 sh 'docker push ${SHIPPING_SERVICE_IMAGE}'
                             }
@@ -259,7 +259,7 @@ pipeline {
                 stage('Push cartservice Image') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                            withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                                 sh 'echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin'
                                 sh 'docker push ${CART_SERVICE_IMAGE}'
                             }
@@ -269,7 +269,7 @@ pipeline {
                 stage('Push currencyservice Image') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                            withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                                 sh 'echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin'
                                 sh 'docker push ${CURRENCY_SERVICE_IMAGE}'
                             }
@@ -279,7 +279,7 @@ pipeline {
                 stage('Push frontend Image') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                            withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                                 sh 'echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin'
                                 sh 'docker push ${FRONTEND_SERVICE_IMAGE}'
                             }
@@ -289,7 +289,7 @@ pipeline {
                 stage('Push paymentservice Image') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                            withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                                 sh 'echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin'
                                 sh 'docker push ${PAYMENT_SERVICE_IMAGE}'
                             }
@@ -299,7 +299,7 @@ pipeline {
                 stage('Push recommendationservice Image') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                            withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                                 sh 'echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin'
                                 sh 'docker push ${RECOMMENDATION_SERVICE_IMAGE}'
                             }
@@ -316,7 +316,7 @@ pipeline {
                 script {
                     echo 'Applying Terraform configurations to create GCP resources...'
                     // Ensure you're authenticated and have the necessary permissions to create resources
-                    withCredentials([file(credentialsId: 'gcp-sa', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+                    withCredentials([file(credentialsId: 'gcpsa', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
                         // Authenticate with Google Cloud
                         sh 'gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS'
         
@@ -342,7 +342,7 @@ pipeline {
                 steps {
                     script {
                         // Authenticate with Google Cloud
-                        withCredentials([file(credentialsId: 'gcp-sa', variable: 'GCP_KEY')]) {
+                        withCredentials([file(credentialsId: 'gcpsa', variable: 'GCP_KEY')]) {
                             sh 'gcloud auth activate-service-account --key-file=$GCP_KEY'
                             
                             // Set the project and region
