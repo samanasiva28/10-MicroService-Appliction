@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        REPO_URL = 'https://github.com/sgandeplli/10-MicroService-Appliction.git'
+        REPO_URL = 'https://github.com/samanasiva28/10-MicroService-Appliction.git'
         DOCKER_HUB_USER = 'sivasai2003'
         CREDENTIALS_ID = 'docker'  // Updated credentials ID
         GOOGLE_CREDENTIALS = credentials('gcpsa')  
