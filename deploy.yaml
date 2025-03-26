@@ -47,7 +47,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: sivasai2003/emailservice:latest
+        image: sivasai2003/emailservice:v5
         ports:
         - containerPort: 8080
         env:
@@ -112,7 +112,7 @@ spec:
                 - ALL
             privileged: false
             readOnlyRootFilesystem: true
-          image: sivasai2003/checkoutservice:latest
+          image: sivasai2003/checkoutservice:v3
           ports:
           - containerPort: 5050
           readinessProbe:
@@ -186,7 +186,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: sivasai2003/recommendationservice:latest
+        image: sivasai2003/recommendationservice:v9
         ports:
         - containerPort: 8080
         readinessProbe:
@@ -255,7 +255,7 @@ spec:
                 - ALL
             privileged: false
             readOnlyRootFilesystem: true
-          image: sivasai2003/frontend:latest
+          image: sivasai2003/frontend:v1
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -364,7 +364,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: sivasai2003/paymentservice:latest
+        image: sivasai2003/paymentservice:v7
         ports:
         - containerPort: 50051
         env:
@@ -428,7 +428,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: sivasai2003/productcatalogservice:latest
+        image: sivasai2003/productcatalogservice:v8
         ports:
         - containerPort: 3550
         env:
@@ -584,7 +584,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: sivasai2003/loadgenerator:latest
+        image: sivasai2003/loadgenerator:v6
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
@@ -627,7 +627,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: sivasai2003/currencyservice:latest
+        image: sivasai2003/currencyservice:v4
         ports:
         - name: grpc
           containerPort: 7000
@@ -691,7 +691,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: sivasai2003/shippingservice:latest
+        image: sivasai2003/shippingservice:v10
         ports:
         - containerPort: 50051
         env:
